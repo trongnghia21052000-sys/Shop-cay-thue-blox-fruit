@@ -5,39 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>👑SHYROLIC SHOP👑</title>
     <style>
-        /* THE COOL BACKGROUND: Dark with a glowing radial gradient */
         body { 
-            background: radial-gradient(circle at center, #111111 0%, #050505 100%);
+            background: #050505; 
             color: white; 
-            font-family: 'Segoe UI', Roboto, sans-serif; 
+            font-family: 'Segoe UI', sans-serif; 
             text-align: center; 
             padding: 20px; 
             margin: 0; 
-            min-height: 100vh;
-        }
-
-        /* Subtle animated background grid */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: linear-gradient(rgba(0, 255, 0, 0.02) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(0, 255, 0, 0.02) 1px, transparent 1px);
-            background-size: 50px 50px;
-            z-index: -1;
         }
 
         .header { 
-            padding: 40px; 
+            background: #0a0a0a; 
+            padding: 30px; 
             border-bottom: 2px solid #5865F2; 
-            margin-bottom: 30px;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(10px);
+            margin-bottom: 25px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
         }
 
-        h1 { color: #00ff00; text-shadow: 0 0 15px rgba(0, 255, 0, 0.6); margin: 0; font-size: 2.2rem; }
+        h1 { color: #00ff00; text-shadow: 0 0 10px #00ff00; margin: 0; font-size: 2rem; }
         
-        /* Buttons that match your new screenshot */
         .category-btn {
             background: #111;
             color: #00ff00;
@@ -52,108 +38,96 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-radius: 10px;
+            border-radius: 8px;
             transition: 0.3s;
         }
 
-        .category-btn:hover {
-            background: #1a1a1a;
-            border-color: #5865F2;
-            box-shadow: 0 0 15px rgba(88, 101, 242, 0.2);
-        }
+        .category-btn:hover { border-color: #5865F2; background: #161616; }
 
-        /* The "Cool" Slider Background */
         .content {
             max-height: 0;
             overflow: hidden;
-            transition: all 0.4s ease-in-out;
-            background: rgba(20, 20, 20, 0.8);
-            backdrop-filter: blur(15px); /* Glass effect */
-            max-width: 550px;
-            margin: 0 auto;
-            border-radius: 0 0 10px 10px;
-            border: 1px solid rgba(88, 101, 242, 0.2);
+            transition: max-height 0.4s ease-out;
+            background: #1a1a1a; 
+            border: 1px solid #333;
             border-top: none;
+            max-width: 550px;
+            margin: 0 auto 10px auto;
+            border-radius: 0 0 8px 8px;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+        }
+
+        #levelSec, #itemSec {
+            border-left: 2px solid #00ff00;
+            border-right: 2px solid #00ff00;
+            border-bottom: 2px solid #00ff00;
         }
 
         .item-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 14px 25px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 15px 25px;
+            border-bottom: 1px solid #222;
         }
 
-        .item-name { color: #ccc; }
         .item-price { color: #00ff00; font-weight: bold; margin-right: 15px; }
         
         .buy-link {
             background: #5865F2;
             color: white;
             padding: 8px 16px;
-            border-radius: 6px;
+            border-radius: 4px;
             text-decoration: none;
             font-size: 0.8rem;
             font-weight: bold;
-            transition: 0.2s;
         }
-
-        .buy-link:hover { transform: scale(1.05); background: #4752c4; }
-
-        .discord-btn-fixed {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #5865F2;
-            padding: 15px;
-            border-radius: 50%;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-            transition: 0.3s;
-        }
+        .buy-link:hover { background: #4752c4; }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <h1>🏴‍☠️ BLOX FRUIT SHOP VN</h1>
-        <p style="color: #666; margin-top: 10px;">Chọn mục bạn cần để xem bảng giá</p>
+        <h1>👑 BLOX FRUIT SHOP VN 👑</h1>
+        <p style="color: #888;">Chọn mục bạn cần để xem bảng giá</p>
     </div>
 
-    <button class="category-btn" onclick="toggleSection('levelSec')">⚡ LEVELING <span style="color:#555">▼</span></button>
+    <button class="category-btn" onclick="toggleSection('levelSec')">⚡ LEVELING <span>▼</span></button>
     <div id="levelSec" class="content">
         <div class="item-row"><span>Lv 1 - 700</span><span class="item-price">15k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
         <div class="item-row"><span>Lv 700 - 1500</span><span class="item-price">15k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
         <div class="item-row"><span>Lv 1500 - 2800</span><span class="item-price">20k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
     </div>
 
-    <button class="category-btn" onclick="toggleSection('itemSec')">💰 ITEMS & CURRENCY <span style="color:#555">▼</span></button>
+    <button class="category-btn" onclick="toggleSection('itemSec')">💰 BELI & FRAGMENTS <span>▼</span></button>
     <div id="itemSec" class="content">
         <div class="item-row"><span>1m Beli</span><span class="item-price">3k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
         <div class="item-row"><span>1000 Fragments</span><span class="item-price">3k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
     </div>
 
-    <button class="category-btn" onclick="toggleSection('masterySec')">📜 MASTERY <span style="color:#555">▼</span></button>
+    <button class="category-btn" onclick="toggleSection('masterySec')">📜 MASTERY <span>▼</span></button>
     <div id="masterySec" class="content">
         <div class="item-row"><span>400 Mastery</span><span class="item-price">27k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
         <div class="item-row"><span>600 Mastery</span><span class="item-price">37k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
     </div>
 
-    <button class="category-btn" onclick="toggleSection('meleeSec')">👊 MELEE SERVICES <span style="color:#555">▼</span></button>
+    <button class="category-btn" onclick="toggleSection('meleeSec')">👊 MELEE 👊<span>▼</span></button>
     <div id="meleeSec" class="content">
         <div class="item-row"><span>Melee v2 (200 mas)</span><span class="item-price">20k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
         <div class="item-row"><span>Melee v1 (200 mas)</span><span class="item-price">10k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
     </div>
 
-    <button class="category-btn" onclick="toggleSection('fruitSec')">🍎 RACE FRUITS <span style="color:#555">▼</span></button>
+    <button class="category-btn" onclick="toggleSection('fruitSec')">🍎 RAID 🍎<span>▼</span></button>
     <div id="fruitSec" class="content">
         <div class="item-row"><span>Dough (Full)</span><span class="item-price">45k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
         <div class="item-row"><span>Phoenix</span><span class="item-price">30k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
         <div class="item-row"><span>Buddha</span><span class="item-price">35k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
+        <div class="item-row"><span>Paw / Gravity</span><span class="item-price">35k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
     </div>
 
-    <button class="category-btn" onclick="toggleSection('tocSec')">🧬 UP TỘC <span style="color:#555">▼</span></button>
+    <button class="category-btn" onclick="toggleSection('tocSec')">🧬 UP TỘC 🧬<span>▼</span></button>
     <div id="tocSec" class="content">
-        <div class="item-row"><span>Up Tộc v1-v3</span><span class="item-price">10k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
+        <div class="item-row"><span>Up Tộc v1 - v3</span><span class="item-price">10k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
     </div>
 
     <script>
@@ -167,6 +141,8 @@
             }
         }
     </script>
+
+    <p style="margin-top: 50px; color: #444; font-size: 12px;">SHYROLIC SHOP - Discord: 9cRdHq3H</p>
 
 </body>
 </html>
