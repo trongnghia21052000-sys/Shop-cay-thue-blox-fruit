@@ -5,95 +5,141 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>👑SHYROLIC SHOP👑</title>
     <style>
-        body { background: #0a0a0a; color: white; font-family: 'Segoe UI', sans-serif; text-align: center; padding: 20px; margin: 0; }
-        .header { background: #111; padding: 30px; border-bottom: 3px solid #5865F2; margin-bottom: 20px; }
-        h1 { color: #00ff00; text-shadow: 0 0 15px #00ff00; margin: 0; }
+        /* COOL BACKGROUND */
+        body { 
+            background: radial-gradient(circle at top, #1a1a2e 0%, #0a0a0a 100%);
+            color: white; 
+            font-family: 'Segoe UI', sans-serif; 
+            text-align: center; 
+            padding: 20px; 
+            margin: 0; 
+            min-height: 100vh;
+        }
+
+        .header { 
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 40px; 
+            border-bottom: 3px solid #5865F2; 
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        h1 { color: #00ff00; text-shadow: 0 0 20px #00ff00; margin: 0; font-size: 2.5rem; }
         
         /* Category Button Styling */
         .category-btn {
-            background: #161616;
+            background: rgba(22, 22, 22, 0.8);
             color: #00ff00;
             border: 1px solid #333;
             width: 100%;
             max-width: 500px;
-            padding: 15px;
-            margin: 10px auto;
+            padding: 18px;
+            margin: 12px auto 0 auto; /* Removed bottom margin to connect with slider */
             font-size: 1.2rem;
             font-weight: bold;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-radius: 8px;
-            transition: 0.3s;
+            border-radius: 12px;
+            transition: 0.4s;
+            position: relative;
+            z-index: 2;
         }
-        .category-btn:hover { border-color: #5865F2; background: #1a1a1a; }
 
-        /* Hidden Content Styling */
+        /* SPECIAL GLOW FOR LEVELING SLIDER */
+        .level-btn { border-color: #00ff00; box-shadow: 0 0 10px rgba(0, 255, 0, 0.1); }
+
+        .category-btn:hover { 
+            border-color: #5865F2; 
+            background: #1a1a1a; 
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(88, 101, 242, 0.4);
+        }
+
+        /* Hidden Content (The Slider) */
         .content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            background: #111;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.03); /* Sub-background effect */
+            backdrop-filter: blur(5px);
             max-width: 500px;
-            margin: 0 auto;
-            border-radius: 0 0 8px 8px;
+            margin: -5px auto 10px auto; /* Pulls it up to connect to button */
+            border-radius: 0 0 12px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: none;
+        }
+
+        /* SUB-BACKGROUND FOR LEVELING specifically */
+        #levelSec {
+            background: linear-gradient(180deg, rgba(0, 255, 0, 0.05) 0%, rgba(10, 10, 10, 0.9) 100%);
         }
 
         .item-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 20px;
-            border-bottom: 1px solid #222;
+            padding: 15px 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
         }
-        .item-name { text-align: left; }
-        .item-price { color: #00ff00; font-weight: bold; margin-right: 15px; }
+        
+        .item-row:hover { background: rgba(255, 255, 255, 0.05); }
+
+        .item-name { font-weight: 500; letter-spacing: 0.5px; }
+        .item-price { color: #00ff00; font-weight: bold; font-size: 1.1rem; }
         
         .buy-link {
             background: #5865F2;
             color: white;
-            padding: 6px 12px;
-            border-radius: 4px;
+            padding: 8px 16px;
+            border-radius: 6px;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: bold;
+            box-shadow: 0 4px 10px rgba(88, 101, 242, 0.3);
+            transition: 0.3s;
         }
+        .buy-link:hover { background: #4752c4; transform: translateY(-2px); }
+
+        .discord-footer { margin-top: 60px; padding: 30px; background: rgba(0,0,0,0.3); border-radius: 20px; display: inline-block; }
     </style>
 </head>
 <body>
 
     <div class="header">
         <h1>👑SHYROLIC SHOP👑</h1>
-        <p>Chọn mục bạn cần để xem bảng giá</p>
+        <p style="color: #888;">Premium Blox Fruit Services & Grinding</p>
     </div>
 
-    <button class="category-btn" onclick="toggleSection('levelSec')">⚡ LEVELING <span>▼</span></button>
+    <button class="category-btn level-btn" onclick="toggleSection('levelSec')">⚡ LEVELING ⚡ <span>▼</span></button>
     <div id="levelSec" class="content">
         <div class="item-row"><span class="item-name">Lv 1 - 700</span><span class="item-price">15k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
         <div class="item-row"><span class="item-name">Lv 700 - 1500</span><span class="item-price">15k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
         <div class="item-row"><span class="item-name">Lv 1500 - 2800</span><span class="item-price">20k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
     </div>
 
-    <button class="category-btn" onclick="toggleSection('itemSec')">💰BELI & FRAGMENTS💰 <span>▼</span></button>
+    <button class="category-btn" onclick="toggleSection('itemSec')">💰 BELI & FRAGMENTS 💰 <span>▼</span></button>
     <div id="itemSec" class="content">
         <div class="item-row"><span class="item-name">1M Beli</span><span class="item-price">3k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
         <div class="item-row"><span class="item-name">1000 Fragments</span><span class="item-price">3k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
     </div>
 
-    <button class="category-btn" onclick="toggleSection('masterySec')">📜MASTERY📜<span>▼</span></button>
+    <button class="category-btn" onclick="toggleSection('masterySec')">📜 MASTERY 📜<span>▼</span></button>
     <div id="masterySec" class="content">
         <div class="item-row"><span class="item-name">400 Mastery</span><span class="item-price">27k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
         <div class="item-row"><span class="item-name">600 Mastery</span><span class="item-price">37k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
     </div>
 
-    <button class="category-btn" onclick="toggleSection('meleeSec')">👊MELEE👊<span>▼</span></button>
+    <button class="category-btn" onclick="toggleSection('meleeSec')">👊 MELEE 👊<span>▼</span></button>
     <div id="meleeSec" class="content">
         <div class="item-row"><span class="item-name">Melee v2 (200 mas)</span><span class="item-price">20k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
         <div class="item-row"><span class="item-name">Melee v1 (200 mas)</span><span class="item-price">10k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
     </div>
 
-    <button class="category-btn" onclick="toggleSection('fruitSec')">🍎RAID🍎<span>▼</span></button>
+    <button class="category-btn" onclick="toggleSection('fruitSec')">🍎 RAID 🍎<span>▼</span></button>
     <div id="fruitSec" class="content">
         <div class="item-row"><span class="item-name">Dough (Full)</span><span class="item-price">45k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
         <div class="item-row"><span class="item-name">Phoenix</span><span class="item-price">30k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
@@ -101,7 +147,7 @@
         <div class="item-row"><span class="item-name">Paw / Gravity</span><span class="item-price">35k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
     </div>
 
-    <button class="category-btn" onclick="toggleSection('tocSec')">🧬UP TỘC🧬<span>▼</span></button>
+    <button class="category-btn" onclick="toggleSection('tocSec')">🧬 UP TỘC 🧬<span>▼</span></button>
     <div id="tocSec" class="content">
         <div class="item-row"><span class="item-name">Up Tộc v1 - v3</span><span class="item-price">10k</span><a href="https://discord.gg/9cRdHq3H" class="buy-link">MUA</a></div>
     </div>
@@ -111,16 +157,18 @@
             var section = document.getElementById(id);
             if (section.style.maxHeight && section.style.maxHeight !== "0px") {
                 section.style.maxHeight = "0px";
+                section.style.border = "none";
             } else {
-                // Close all other sections first for a clean look
-                document.querySelectorAll('.content').forEach(s => s.style.maxHeight = "0px");
+                document.querySelectorAll('.content').forEach(s => {
+                    s.style.maxHeight = "0px";
+                });
                 section.style.maxHeight = section.scrollHeight + "px";
             }
         }
     </script>
 
-    <div style="margin-top: 40px; color: #888;">
-        <p>Discord: <a href="https://discord.gg/9cRdHq3H" style="color:#5865F2;">Join Support Server</a></p>
+    <div class="discord-footer">
+        <p>Support & Orders: <a href="https://discord.gg/9cRdHq3H" style="color:#5865F2; font-weight: bold; text-decoration: none;">Join Discord Server</a></p>
     </div>
 
 </body>
